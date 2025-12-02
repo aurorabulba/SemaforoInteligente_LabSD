@@ -1,4 +1,4 @@
---Mux 
+--Multiplexador (MUX) para selecionar qual dos 3 limites de tempo sera enviado ao comparador
 
 --Alunos:
 -- Aurora Cristina Bombassaro,
@@ -17,11 +17,12 @@ end Mux_5bit;
 architecture Behavioral of Mux_5bit is
 signal sel : STD_LOGIC_VECTOR(1 downto 0);
 begin
-
+    --Entrada para escolher qual será o tempo de saida
     sel <= t1 & t0;
 
     process(sel)
     begin
+        --Selecionando o tempo de saida
         case sel is
             when "00" =>
                 output <= "00010";   -- tempo verde

@@ -1,3 +1,8 @@
+--Alunos:
+-- Aurora Cristina Bombassaro,
+--Gustavo de Oliveira Cardoso Rezende, 
+--Gustavo Loureiro Muller Netto.
+
 library IEEE;
 use IEEE.std_logic_1164.all;
 

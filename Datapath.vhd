@@ -1,17 +1,19 @@
-
 --Alunos:
 -- Aurora Cristina Bombassaro,
 --Gustavo de Oliveira Cardoso Rezende, 
 --Gustavo Loureiro Muller Netto.
 
+--Datapath: executa as ordens da FSM (controladora)
+--Estrutural: conecta o que ja fizemos
+
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.NUMERIC_STD.ALL; -- Necessário para converter Integer para STD_LOGIC_VECTOR
+use IEEE.NUMERIC_STD.ALL;
 
 entity Datapath is
     Port (
         -- Entradas de Controle (vindas da FSM ou Top-Level)
-        clk            : in  STD_LOGIC;                    -- Clock (deve ser o de 1Hz)
+        clk            : in  STD_LOGIC;                  
         reset_contador : in  STD_LOGIC;                    -- Reseta a contagem
         t1, t0         : in  STD_LOGIC;                    -- Selecionam o tempo no Mux
         estado_in      : in  STD_LOGIC_VECTOR(2 downto 0); -- Estado atual para o Decodificador
@@ -27,8 +29,7 @@ end Datapath;
 
 architecture Structural of Datapath is
 
-    -- 1. Declaração dos Componentes (baseados nos seus arquivos)
-    
+    -- Declaração dos Componentes
     component Mux_5bit is
         Port (
             t1, t0 : in STD_LOGIC;
@@ -41,7 +42,7 @@ architecture Structural of Datapath is
         port (
             clear_contador : in std_logic;
             clk            : in std_logic;
-            count          : out std_logic; -- Overflow (não usaremos aqui)
+            count          : out std_logic; 
             contagem_atual : out integer range 0 to N
         );
     end component;
@@ -66,8 +67,7 @@ architecture Structural of Datapath is
         );
     end component;
 
-    -- 2. Sinais Internos para conectar os blocos
-    
+    -- Conectando os blocos
     signal s_limite_tempo  : STD_LOGIC_VECTOR(4 downto 0); -- Sai do Mux, entra no Comparador
     signal s_conta_int     : integer range 0 to 31;        -- Sai do Contador (formato inteiro)
     signal s_conta_vetor   : STD_LOGIC_VECTOR(4 downto 0); -- Sai do Contador (convertido para vetor)

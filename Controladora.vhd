@@ -1,3 +1,8 @@
+--Alunos:
+-- Aurora Cristina Bombassaro,
+--Gustavo de Oliveira Cardoso Rezende, 
+--Gustavo Loureiro Muller Netto.
+
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
@@ -9,7 +14,7 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity Controller is
     Generic (
-        CLK_FREQ        : integer := 50_000_000; -- Clock da FPGA (Ex: 50MHz)
+        CLK_FREQ        : integer := 50_000_000; -- Clock da FPGA 
         TIME_YELLOW     : integer := 3;          -- Tempo do Amarelo (segundos)
         TIME_GREEN_MAIN : integer := 15;        
         TIME_GREEN_SIDE : integer := 10         -- Tempo do Verde Secundário (segundos)

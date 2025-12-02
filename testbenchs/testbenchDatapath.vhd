@@ -7,7 +7,6 @@ end tb_Datapath;
 
 architecture Sim of tb_Datapath is
 
-    -- 1. Componente a ser testado
     component Datapath is
         Port (
             clk            : in  STD_LOGIC;
@@ -20,7 +19,6 @@ architecture Sim of tb_Datapath is
         );
     end component;
 
-    -- 2. Sinais
     signal s_clk            : STD_LOGIC := '0';
     signal s_reset_contador : STD_LOGIC := '0';
     signal s_t1, s_t0       : STD_LOGIC := '0';
@@ -29,7 +27,6 @@ architecture Sim of tb_Datapath is
     signal s_tempo_acabou   : STD_LOGIC;
     signal s_p_red, s_p_yellow, s_p_green : STD_LOGIC;
     signal s_s_red, s_s_yellow, s_s_green : STD_LOGIC;
-
     
     signal sim_active : boolean := true;
 
@@ -53,8 +50,8 @@ begin
             s_green        => s_s_green
         );
 
-    -- 3. Processo de Clock com "Botão de Desligar"
-    -- Ele só gera clock enquanto 'sim_active' for verdadeiro
+    -- Processo de Clock com "Botão de Desligar"
+    -- Ele só gera clock enquanto 'sim_active' for verdadeiro (para evitar de dar timeout)
     clock_process: process
     begin
         while sim_active loop
@@ -63,17 +60,17 @@ begin
             s_clk <= '1';
             wait for CLK_PERIOD/2;
         end loop;
-        wait; -- Trava o processo quando o loop termina
+        wait; 
     end process;
 
-    -- 4. Processo de Estímulos
+    -- Processo de Estímulos
     stim_proc: process
     begin
         report "INICIO DO TESTE";
 
         -- Setup Inicial
         s_reset_contador <= '1';
-        s_t1 <= '0'; s_t0 <= '0'; -- Tempo curto (2)
+        s_t1 <= '0'; s_t0 <= '0';
         s_estado_in <= "000";
         wait for CLK_PERIOD;
         s_reset_contador <= '0';
@@ -84,7 +81,7 @@ begin
 
         -- Checkpoint visual
         if s_tempo_acabou = '1' then
-            report "SUCESSO: Tempo acabou detectado!";
+            report "SUCESSO!";
         else
             report "FALHA: Tempo nao acabou.";
         end if;
@@ -95,7 +92,7 @@ begin
 
         -- FIM DO TESTE
         report "FIM DO TESTE - Desligando Clock";
-        sim_active <= false; -- ISSO EVITA O TIMEOUT
+        sim_active <= false; -- Evitando timeout
         wait;
     end process;
 
