@@ -3,20 +3,15 @@
 <p>
     Este repositório contém o código fonte VHDL e os arquivos de simulação para um 
     Controlador de Semáforo Inteligente, desenvolvido como projeto final da disciplina de 
-    Laboratório de Sistemas Digitais por alunos do Curso Engenharia de Sistemas na UFMG.   
+    Laboratório de Sistemas Digitais por alunos do Curso Engenharia de Sistemas da UFMG.   
 </p>
-
-<p><b>Alunos:</b>
-  <br>Aurora Cristina Bombassaro, 
-  <br>Gustavo de Oliveira Cardoso Rezende, 
-  <br>Gustavo Loureiro Muller Netto.</p>
 
 <p>  O sistema controla o fluxo de trânsito em um cruzamento entre uma via principal e uma via secundária, com suporte para pedestres.
 </p>
 
 <hr>
 
-<h2>📋 Sobre o Projeto</h2>
+<h2> Sobre o Projeto</h2>
 
 <p>
     O objetivo foi criar um sistema digital robusto capaz de gerenciar o tráfego de forma eficiente e segura. 
@@ -24,7 +19,7 @@
     O design foi implementado visando síntese em FPGA (Field Programmable Gate Array).
 </p>
 
-<h2>🚀 Diferenciais e Funcionalidades</h2>
+<h2>Funcionalidades</h2>
 
 <ul>
     <li>
@@ -47,7 +42,7 @@
     </li>
 </ul>
 
-<h2>🛠️ Arquitetura do Sistema</h2>
+<h2> Arquitetura do Sistema</h2>
 
 <h3>Máquina de Estados (FSM)</h3>
 <p>O controlador opera com 5 estados principais:</p>
@@ -59,7 +54,7 @@
     <li><b>ST_RedYellow:</b> Via Secundária Amarela (3s).</li>
 </ol>
 
-<h2>💻 Tecnologias Utilizadas</h2>
+<h2> Tecnologias Utilizadas</h2>
 
 <ul>
     <li><b>Linguagem:</b> VHDL (IEEE 1076)</li>
@@ -67,7 +62,7 @@
     <li><b>Visualização de Ondas:</b> GTKWave / EPWave</li>
 </ul>
 
-<h2>👥 Autores</h2>
+<h2> Autores</h2>
 
 <p>
     Projeto desenvolvido por:
